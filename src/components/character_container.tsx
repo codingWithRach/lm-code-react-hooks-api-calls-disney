@@ -4,13 +4,11 @@ import Character from "./character";
 
 interface CharacterContainerProps {
   characters: Array<DisneyCharacter>;
-  characterFavourites: Array<number>;
   updateFavourites: (favourites: Array<number>) => void;
 }
 // - defining an anonymous type that just has one property - an array of DisneyCharacter
 const CharacterContainer: React.FC<CharacterContainerProps> = ({
   characters,
-  characterFavourites,
   updateFavourites,
 }) => {
   // this function separates our array of DisneyCharacters into rows and columns
@@ -24,7 +22,6 @@ const CharacterContainer: React.FC<CharacterContainerProps> = ({
         <Character
           key={character._id}
           character={character}
-          characterFavourites={characterFavourites}
           updateFavourites={updateFavourites}
         />
       );
