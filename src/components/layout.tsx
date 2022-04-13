@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { DisneyCharacter } from "../disney_character";
-import { FavouritesProvider } from "../FavouritesContext";
+import { FavouritesProvider } from "../context_providers/FavouritesContext";
 import Header from "./header";
 import Navigation from "./navigation";
 

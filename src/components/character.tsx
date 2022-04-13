@@ -3,7 +3,7 @@ import {
   IFavouritesContext,
   useFavourites,
   useFavouritesUpdate,
-} from "../FavouritesContext";
+} from "../context_providers/FavouritesContext";
 
 interface CharacterProps {
   character: DisneyCharacter;

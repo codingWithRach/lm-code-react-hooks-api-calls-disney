@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import ContextComponent from "./components/ContextComponent";
+import FavouritesContextComponent from "../components/FavouritesContextComponent";
 
 export interface IFavouritesContext {
   favourites: Array<number>;
@@ -41,7 +41,7 @@ export function FavouritesProvider() {
   return (
     <FavouritesContext.Provider value={favourites}>
       <FavouritesUpdateContext.Provider value={toggleFavouriteForCharacter}>
-        <ContextComponent />
+        <FavouritesContextComponent />
       </FavouritesUpdateContext.Provider>
     </FavouritesContext.Provider>
   );
