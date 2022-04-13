@@ -15,7 +15,6 @@ const CurrentPageContextComponent: React.FC = () => {
   const [characters, setCharacters] = useState<Array<DisneyCharacter>>([]);
 
   const getCharacters = async (pageNumber: number) => {
-    console.log(`getCharacters for page ${pageNumber}`);
     const apiResponse = await axios.get(
       `http://api.disneyapi.dev/characters?page=${pageNumber}`
     );
