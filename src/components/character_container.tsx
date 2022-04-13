@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { DisneyCharacter } from "../disney_character";
 import Character from "./character";
-import { CharactersContext } from "./layout";
+import { CharactersContext } from "./CurrentPageContextComponent";
 
-// - defining an anonymous type that just has one property - an array of DisneyCharacter
 const CharacterContainer: React.FC = () => {
   const characters: Array<DisneyCharacter> = useContext(CharactersContext);
 

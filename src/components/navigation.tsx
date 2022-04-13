@@ -1,18 +1,19 @@
-// our props have two properties - a number, and a function that takes a number and returns void
-// we can define this as an interface, or anonymously like this:
-const Navigation: React.FC<{
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
-}> = ({ currentPage, setCurrentPage }) => {
+import {
+  useCurrentPage,
+  useCurrentPageUpdate,
+} from "../context_providers/CurrentPageContext";
+
+const Navigation: React.FC = () => {
+  const currentPage = useCurrentPage();
+  const updateCurrentPage = useCurrentPageUpdate();
+
   const nextPage = () => {
-    const newPageNumber = currentPage + 1;
-    setCurrentPage(newPageNumber);
+    updateCurrentPage(currentPage.currentPage + 1);
   };
 
   const prevPage = () => {
-    if (currentPage > 1) {
-      const newPageNumber = currentPage - 1;
-      setCurrentPage(newPageNumber);
+    if (currentPage.currentPage > 1) {
+      updateCurrentPage(currentPage.currentPage - 1);
     }
   };
 
