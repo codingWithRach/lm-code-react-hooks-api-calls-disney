@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import CurrentPageContextComponent from "../components/CurrentPageContextComponent";
 
 export interface ICurrentPageContext {
   currentPage: number;
@@ -19,7 +18,7 @@ export function useCurrentPageUpdate() {
   return useContext(CurrentPageUpdateContext);
 }
 
-const CurrentPageProvider = () => {
+const CurrentPageProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [currentPage, setCurrentPage] = useState<ICurrentPageContext>({
     currentPage: 1,
   });
@@ -31,7 +30,7 @@ const CurrentPageProvider = () => {
   return (
     <CurrentPageContext.Provider value={currentPage}>
       <CurrentPageUpdateContext.Provider value={updateCurrentPage}>
-        <CurrentPageContextComponent />
+        {children}
       </CurrentPageUpdateContext.Provider>
     </CurrentPageContext.Provider>
   );

@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import FavouritesContextComponent from "../components/FavouritesContextComponent";
-
 export interface IFavouritesContext {
   favourites: Array<number>;
 }

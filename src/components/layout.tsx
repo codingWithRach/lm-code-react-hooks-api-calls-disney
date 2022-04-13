@@ -1,10 +1,13 @@
 import React from "react";
 import CurrentPageProvider from "../context_providers/CurrentPageContext";
+import CurrentPageContextComponent from "./CurrentPageContextComponent";
 
 const Layout: React.FC = () => {
   return (
     <div className="page">
-      <CurrentPageProvider />
+      <CurrentPageProvider>
+        <CurrentPageContextComponent />
+      </CurrentPageProvider>
     </div>
   );
 };
