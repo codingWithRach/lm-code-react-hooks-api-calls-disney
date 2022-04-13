@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./header";
 import Navigation from "./navigation";
-import { FavouritesProvider } from "../context_providers/FavouritesContext";
+import FavouritesProvider from "../context_providers/FavouritesContext";
 import { DisneyCharacter } from "../disney_character";
 import { useCurrentPage } from "../context_providers/CurrentPageContext";
+import CharacterContainer from "./character_container";
 
 export const CharactersContext = React.createContext<Array<DisneyCharacter>>(
   []
@@ -30,7 +31,9 @@ const CurrentPageContextComponent: React.FC = () => {
       <Header />
       <Navigation />
       <CharactersContext.Provider value={characters}>
-        <FavouritesProvider />
+        <FavouritesProvider>
+          <CharacterContainer />
+        </FavouritesProvider>
       </CharactersContext.Provider>
     </>
   );

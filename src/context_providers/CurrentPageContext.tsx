@@ -19,7 +19,7 @@ export function useCurrentPageUpdate() {
   return useContext(CurrentPageUpdateContext);
 }
 
-export function CurrentPageProvider() {
+const CurrentPageProvider = () => {
   const [currentPage, setCurrentPage] = useState<ICurrentPageContext>({
     currentPage: 1,
   });
@@ -35,4 +35,6 @@ export function CurrentPageProvider() {
       </CurrentPageUpdateContext.Provider>
     </CurrentPageContext.Provider>
   );
-}
+};
+
+export default CurrentPageProvider;

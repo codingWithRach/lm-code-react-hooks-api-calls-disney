@@ -1,5 +1,5 @@
 import React from "react";
-import { CurrentPageProvider } from "../context_providers/CurrentPageContext";
+import CurrentPageProvider from "../context_providers/CurrentPageContext";
 
 const Layout: React.FC = () => {
   return (

@@ -19,7 +19,7 @@ export function useFavouritesUpdate() {
   return useContext(FavouritesUpdateContext);
 }
 
-export function FavouritesProvider() {
+const FavouritesProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [favourites, setFavourites] = useState<IFavouritesContext>({
     favourites: [],
   });
@@ -41,8 +41,10 @@ export function FavouritesProvider() {
   return (
     <FavouritesContext.Provider value={favourites}>
       <FavouritesUpdateContext.Provider value={toggleFavouriteForCharacter}>
-        <FavouritesContextComponent />
+        {children}
       </FavouritesUpdateContext.Provider>
     </FavouritesContext.Provider>
   );
-}
+};
+
+export default FavouritesProvider;
