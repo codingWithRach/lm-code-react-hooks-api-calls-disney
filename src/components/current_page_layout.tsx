@@ -6,6 +6,7 @@ import FavouritesProvider from "../context_providers/FavouritesContext";
 import { DisneyCharacter } from "../disney_character";
 import { useCurrentPage } from "../context_providers/CurrentPageContext";
 import CharacterContainer from "./character_container";
+import { useShowAll } from "../context_providers/ShowAllContext";
 
 export const CharactersContext = React.createContext<Array<DisneyCharacter>>(
   []
@@ -13,6 +14,7 @@ export const CharactersContext = React.createContext<Array<DisneyCharacter>>(
 
 const CurrentPageLayout: React.FC = () => {
   const currentPage = useCurrentPage();
+  const showAll = useShowAll();
   const [characters, setCharacters] = useState<Array<DisneyCharacter>>([]);
 
   const getCharacters = async (pageNumber: number) => {
@@ -24,7 +26,7 @@ const CurrentPageLayout: React.FC = () => {
 
   useEffect(() => {
     getCharacters(currentPage.currentPage);
-  }, [currentPage]);
+  }, [currentPage, showAll]);
 
   return (
     <>
