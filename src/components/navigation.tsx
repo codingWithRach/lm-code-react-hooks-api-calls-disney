@@ -14,7 +14,9 @@ const Navigation: React.FC = () => {
   const updateShowAll = useShowAllUpdate();
 
   const nextPage = () => {
-    updateCurrentPage(currentPage.currentPage + 1);
+    if (showAll) {
+      updateCurrentPage(currentPage.currentPage + 1);
+    }
   };
 
   const showFavourites = () => {
