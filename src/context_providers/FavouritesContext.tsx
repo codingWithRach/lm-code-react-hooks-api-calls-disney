@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
+import { DisneyCharacter } from "../disney_character";
 export interface IFavouritesContext {
   favourites: Array<number>;
 }
 const FavouritesContext = React.createContext<IFavouritesContext>({
   favourites: [],
 });
-const defaultFunction = (id: number) => {};
+const defaultFunction = (character: DisneyCharacter) => {};
 const FavouritesUpdateContext =
-  React.createContext<(id: number) => void>(defaultFunction);
+  React.createContext<(character: DisneyCharacter) => void>(defaultFunction);
 
 export function useFavourites(): IFavouritesContext {
   return useContext(FavouritesContext);
@@ -22,7 +23,8 @@ const FavouritesProvider: React.FC<React.ReactNode> = ({ children }) => {
     favourites: [],
   });
 
-  function toggleFavouriteForCharacter(characterId: number) {
+  function toggleFavouriteForCharacter(character: DisneyCharacter) {
+    const characterId = character._id;
     // if not already a favourite, add it
     if (!favourites.favourites.includes(characterId)) {
       setFavourites({ favourites: [...favourites.favourites, characterId] });

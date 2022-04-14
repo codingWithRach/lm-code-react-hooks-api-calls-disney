@@ -30,7 +30,7 @@ const Character: React.FC<CharacterProps> = ({ character }) => {
 
       <div
         className="character-item__actions"
-        onClick={() => toggleFavouriteForCharacter(character._id)}
+        onClick={() => toggleFavouriteForCharacter(character)}
       >
         {!characterFavourites.favourites.includes(character._id)
           ? "Add to Favourites"
