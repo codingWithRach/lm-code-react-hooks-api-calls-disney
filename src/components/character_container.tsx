@@ -15,10 +15,11 @@ const CharacterContainer: React.FC = () => {
   const showAll = useShowAll();
   const currentPage = useCurrentPage().currentPage;
   const updateCurrentPage = useCurrentPageUpdate();
-  if (!showAll) {
-    characters = characters.filter((character) =>
-      favourites.favourites.includes(character._id)
-    );
+  let displayCharacters: Array<DisneyCharacter> = [];
+  if (showAll) {
+    displayCharacters = [...characters];
+  } else {
+    displayCharacters = [...favourites.favCharacters];
   }
 
   // this function separates our array of DisneyCharacters into rows and columns
@@ -27,7 +28,7 @@ const CharacterContainer: React.FC = () => {
     let rows: Array<JSX.Element> = [],
       cols: Array<JSX.Element> = [];
 
-    characters.forEach((character, index) => {
+    displayCharacters.forEach((character, index) => {
       cols.push(<Character key={character._id} character={character} />);
       if ((index + 1) % 5 === 0) {
         rows.push(
@@ -42,7 +43,7 @@ const CharacterContainer: React.FC = () => {
     // Final remaining columns
     if (cols.length > 0) {
       rows.push(
-        <div className="character-row" key={characters.length}>
+        <div className="character-row" key={displayCharacters.length}>
           {cols}
         </div>
       );
