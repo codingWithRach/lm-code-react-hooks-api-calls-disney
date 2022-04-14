@@ -1,6 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useFavourites } from "../context_providers/FavouritesContext";
-import { useShowAll } from "../context_providers/ShowAllContext";
+import {
+  useShowAll,
+  useShowAllUpdate,
+} from "../context_providers/ShowAllContext";
 import { DisneyCharacter } from "../disney_character";
 import Character from "./character";
 import { CharactersContext } from "./current_page_layout";
@@ -13,9 +16,16 @@ const CharacterContainer: React.FC = () => {
   let characters: Array<DisneyCharacter> = [...useContext(CharactersContext)];
   const favourites = useFavourites();
   const showAll = useShowAll();
+  const updateShowAll = useShowAllUpdate();
   const currentPage = useCurrentPage().currentPage;
   const updateCurrentPage = useCurrentPageUpdate();
   let displayCharacters: Array<DisneyCharacter> = [];
+
+  useEffect(() => {
+    if (!showAll && favourites.favourites.length === 0) {
+      updateShowAll(true);
+    }
+  });
   if (showAll) {
     displayCharacters = [...characters];
   } else {
