@@ -24,11 +24,11 @@ const FavouritesProvider: React.FC<React.ReactNode> = ({ children }) => {
   });
 
   function toggleFavouriteForCharacter(character: DisneyCharacter) {
-    const characterId = character._id;
     // if not already a favourite, add it
     if (
-      favourites.favourites.filter((favourite) => favourite._id === characterId)
-        .length === 0
+      favourites.favourites.filter(
+        (favourite) => favourite._id === character._id
+      ).length === 0
     ) {
       setFavourites({
         favourites: [...favourites.favourites, character],
@@ -38,7 +38,7 @@ const FavouritesProvider: React.FC<React.ReactNode> = ({ children }) => {
     // if already a favourite, remove it
     else {
       const updatedFavourites = favourites.favourites.filter(
-        (favourite) => favourite._id !== characterId
+        (favourite) => favourite._id !== character._id
       );
       setFavourites({
         favourites: updatedFavourites,
