@@ -19,7 +19,7 @@ const CharacterContainer: React.FC = () => {
   if (showAll) {
     displayCharacters = [...characters];
   } else {
-    displayCharacters = [...favourites.favCharacters];
+    displayCharacters = [...favourites.favourites];
   }
 
   // this function separates our array of DisneyCharacters into rows and columns

@@ -10,7 +10,7 @@ interface CharacterProps {
 }
 // - defining an anonymous type that just has one property - a DisneyCharacter
 const Character: React.FC<CharacterProps> = ({ character }) => {
-  const characterFavourites: IFavouritesContext = useFavourites();
+  const favourites: IFavouritesContext = useFavourites();
   const toggleFavouriteForCharacter = useFavouritesUpdate();
 
   // define default in case character doesn't have an image
@@ -32,7 +32,9 @@ const Character: React.FC<CharacterProps> = ({ character }) => {
         className="character-item__actions"
         onClick={() => toggleFavouriteForCharacter(character)}
       >
-        {!characterFavourites.favourites.includes(character._id)
+        {favourites.favourites.filter(
+          (favourite) => favourite._id === character._id
+        ).length === 0
           ? "Add to Favourites"
           : "Selected as Favourite"}
       </div>

@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
 import { DisneyCharacter } from "../disney_character";
 export interface IFavouritesContext {
-  favourites: Array<number>;
-  favCharacters: Array<DisneyCharacter>;
+  favourites: Array<DisneyCharacter>;
 }
 const FavouritesContext = React.createContext<IFavouritesContext>({
   favourites: [],
-  favCharacters: [],
 });
 const defaultFunction = (character: DisneyCharacter) => {};
 const FavouritesUpdateContext =
@@ -23,29 +21,27 @@ export function useFavouritesUpdate() {
 const FavouritesProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [favourites, setFavourites] = useState<IFavouritesContext>({
     favourites: [],
-    favCharacters: [],
   });
 
   function toggleFavouriteForCharacter(character: DisneyCharacter) {
     const characterId = character._id;
     // if not already a favourite, add it
-    if (!favourites.favourites.includes(characterId)) {
+    if (
+      favourites.favourites.filter((favourite) => favourite._id === characterId)
+        .length === 0
+    ) {
       setFavourites({
-        favourites: [...favourites.favourites, characterId],
-        favCharacters: [...favourites.favCharacters, character],
+        favourites: [...favourites.favourites, character],
       });
     }
+
     // if already a favourite, remove it
     else {
       const updatedFavourites = favourites.favourites.filter(
-        (id) => id !== characterId
-      );
-      const updatedFavCharacters = favourites.favCharacters.filter(
-        (favCharacter) => favCharacter._id !== characterId
+        (favourite) => favourite._id !== characterId
       );
       setFavourites({
         favourites: updatedFavourites,
-        favCharacters: updatedFavCharacters,
       });
     }
   }
