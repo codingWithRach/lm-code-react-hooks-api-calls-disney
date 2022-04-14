@@ -8,7 +8,6 @@ import {
 interface CharacterProps {
   character: DisneyCharacter;
 }
-// - defining an anonymous type that just has one property - a DisneyCharacter
 const Character: React.FC<CharacterProps> = ({ character }) => {
   const favourites: IFavouritesContext = useFavourites();
   const toggleFavouriteForCharacter = useFavouritesUpdate();

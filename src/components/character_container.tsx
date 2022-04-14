@@ -19,13 +19,16 @@ const CharacterContainer: React.FC = () => {
   const updateShowAll = useShowAllUpdate();
   const currentPage = useCurrentPage().currentPage;
   const updateCurrentPage = useCurrentPageUpdate();
-  let displayCharacters: Array<DisneyCharacter> = [];
 
+  // if showing favourites and all favourites are removed, revert to showing all
   useEffect(() => {
     if (!showAll && favourites.favourites.length === 0) {
       updateShowAll(true);
     }
   });
+
+  // select whether to display all characters or favourite characters
+  let displayCharacters: Array<DisneyCharacter> = [];
   if (showAll) {
     displayCharacters = [...characters];
   } else {
