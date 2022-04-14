@@ -47,8 +47,6 @@ const CharacterContainer: React.FC = () => {
         </div>
       );
     }
-    console.log(rows);
-
     return rows;
   };
 
