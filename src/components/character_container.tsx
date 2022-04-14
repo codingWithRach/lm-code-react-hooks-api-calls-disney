@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { DisneyCharacter } from "../disney_character";
 import Character from "./character";
-import { CharactersContext } from "./CurrentPageContextComponent";
+import { CharactersContext } from "./current_page_layout";
 
 const CharacterContainer: React.FC = () => {
   const characters: Array<DisneyCharacter> = useContext(CharactersContext);

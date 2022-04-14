@@ -11,7 +11,7 @@ export const CharactersContext = React.createContext<Array<DisneyCharacter>>(
   []
 );
 
-const CurrentPageContextComponent: React.FC = () => {
+const CurrentPageLayout: React.FC = () => {
   const currentPage = useCurrentPage();
   const [characters, setCharacters] = useState<Array<DisneyCharacter>>([]);
 
@@ -39,4 +39,4 @@ const CurrentPageContextComponent: React.FC = () => {
   );
 };
 
-export default CurrentPageContextComponent;
+export default CurrentPageLayout;
