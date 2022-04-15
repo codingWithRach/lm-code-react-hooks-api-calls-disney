@@ -14,7 +14,7 @@ export function useFavourites(): IFavouritesContext {
   return useContext(FavouritesContext);
 }
 
-export function useFavouritesUpdate() {
+export function useFavouritesUpdate(): typeof defaultFunction {
   return useContext(FavouritesUpdateContext);
 }
 

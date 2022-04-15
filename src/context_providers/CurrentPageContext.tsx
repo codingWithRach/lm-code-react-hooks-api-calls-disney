@@ -14,7 +14,7 @@ export function useCurrentPage(): ICurrentPageContext {
   return useContext(CurrentPageContext);
 }
 
-export function useCurrentPageUpdate() {
+export function useCurrentPageUpdate(): typeof defaultFunction {
   return useContext(CurrentPageUpdateContext);
 }
 

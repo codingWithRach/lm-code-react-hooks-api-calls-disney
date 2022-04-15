@@ -12,7 +12,7 @@ import {
   useCurrentPageUpdate,
 } from "../context_providers/CurrentPageContext";
 
-const CharacterContainer: React.FC = () => {
+const CharacterContainer: React.FC<React.ReactNode> = () => {
   let characters: Array<DisneyCharacter> = [...useContext(CharactersContext)];
   const favourites = useFavourites();
   const showAll = useShowAll();

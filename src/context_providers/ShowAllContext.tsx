@@ -10,7 +10,7 @@ export function useShowAll(): boolean {
   return useContext(ShowAllContext);
 }
 
-export function useShowAllUpdate() {
+export function useShowAllUpdate(): typeof defaultFunction {
   return useContext(ShowAllUpdateContext);
 }
 
