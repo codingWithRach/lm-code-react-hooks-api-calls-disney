@@ -1,5 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { useFavourites } from "../context_providers/FavouritesContext";
+import {
+  useFavourites,
+  IFavouritesContext,
+} from "../context_providers/FavouritesContext";
 import {
   useShowAll,
   useShowAllUpdate,
@@ -14,10 +17,10 @@ import {
 
 const CharacterContainer: React.FC<React.ReactNode> = () => {
   let characters: Array<DisneyCharacter> = [...useContext(CharactersContext)];
-  const favourites = useFavourites();
-  const showAll = useShowAll();
+  const favourites: IFavouritesContext = useFavourites();
+  const showAll: boolean = useShowAll();
   const updateShowAll = useShowAllUpdate();
-  const currentPage = useCurrentPage().currentPage;
+  const currentPage: number = useCurrentPage().currentPage;
   const updateCurrentPage = useCurrentPageUpdate();
 
   // if showing favourites and all favourites are removed, revert to showing all
