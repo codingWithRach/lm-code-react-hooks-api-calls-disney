@@ -1,21 +1,14 @@
-import {
-  useCurrentPage,
-  useCurrentPageUpdate,
-} from "../context_providers/CurrentPageContext";
-import {
-  useShowAll,
-  useShowAllUpdate,
-} from "../context_providers/ShowAllContext";
+import { useDisneyContext } from "../context_providers/disney_context";
 
 const Navigation: React.FC = () => {
-  const currentPage = useCurrentPage();
-  const updateCurrentPage = useCurrentPageUpdate();
-  const showAll = useShowAll();
-  const updateShowAll = useShowAllUpdate();
+  const currentPage = useDisneyContext().currentPage;
+  const updateCurrentPage = useDisneyContext().updateCurrentPage;
+  const showAll = useDisneyContext().showAll;
+  const updateShowAll = useDisneyContext().updateShowAll;
 
   const nextPage = () => {
     if (showAll) {
-      updateCurrentPage(currentPage.currentPage + 1);
+      updateCurrentPage(currentPage + 1);
     }
   };
 
@@ -29,8 +22,8 @@ const Navigation: React.FC = () => {
   };
 
   const prevPage = () => {
-    if (currentPage.currentPage > 1) {
-      updateCurrentPage(currentPage.currentPage - 1);
+    if (currentPage > 1) {
+      updateCurrentPage(currentPage - 1);
     }
   };
 

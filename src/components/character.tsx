@@ -1,16 +1,13 @@
+import { useDisneyContext } from "../context_providers/disney_context";
 import { DisneyCharacter } from "../disney_character";
-import {
-  IFavouritesContext,
-  useFavourites,
-  useFavouritesUpdate,
-} from "../context_providers/FavouritesContext";
 
 interface CharacterProps {
   character: DisneyCharacter;
 }
 const Character: React.FC<CharacterProps> = ({ character }) => {
-  const favourites: IFavouritesContext = useFavourites();
-  const toggleFavouriteForCharacter = useFavouritesUpdate();
+  const favourites = useDisneyContext().favourites;
+  const toggleFavouriteForCharacter =
+    useDisneyContext().toggleFavouriteForCharacter;
 
   // define default in case character doesn't have an image
   let imageSrc = "https://picsum.photos/300/200/?blur";
@@ -31,9 +28,8 @@ const Character: React.FC<CharacterProps> = ({ character }) => {
         className="character-item__actions"
         onClick={() => toggleFavouriteForCharacter(character)}
       >
-        {favourites.favourites.filter(
-          (favourite) => favourite._id === character._id
-        ).length === 0
+        {favourites.filter((favourite) => favourite._id === character._id)
+          .length === 0
           ? "Add to Favourites"
           : "Selected as Favourite"}
       </div>

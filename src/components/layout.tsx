@@ -1,16 +1,13 @@
 import React from "react";
-import CurrentPageProvider from "../context_providers/CurrentPageContext";
-import ShowAllProvider from "../context_providers/ShowAllContext";
+import DisneyProvider from "../context_providers/disney_context";
 import CurrentPageLayout from "./current_page_layout";
 
 const Layout: React.FC = () => {
   return (
     <div className="page">
-      <ShowAllProvider>
-        <CurrentPageProvider>
-          <CurrentPageLayout />
-        </CurrentPageProvider>
-      </ShowAllProvider>
+      <DisneyProvider>
+        <CurrentPageLayout />
+      </DisneyProvider>
     </div>
   );
 };

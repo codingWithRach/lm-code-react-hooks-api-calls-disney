@@ -1,31 +1,20 @@
 import React, { useContext, useEffect } from "react";
-import {
-  useFavourites,
-  IFavouritesContext,
-} from "../context_providers/FavouritesContext";
-import {
-  useShowAll,
-  useShowAllUpdate,
-} from "../context_providers/ShowAllContext";
 import { DisneyCharacter } from "../disney_character";
 import Character from "./character";
 import { CharactersContext } from "./current_page_layout";
-import {
-  useCurrentPage,
-  useCurrentPageUpdate,
-} from "../context_providers/CurrentPageContext";
+import { useDisneyContext } from "../context_providers/disney_context";
 
 const CharacterContainer: React.FC<React.ReactNode> = () => {
   let characters: Array<DisneyCharacter> = [...useContext(CharactersContext)];
-  const favourites: IFavouritesContext = useFavourites();
-  const showAll: boolean = useShowAll();
-  const updateShowAll = useShowAllUpdate();
-  const currentPage: number = useCurrentPage().currentPage;
-  const updateCurrentPage = useCurrentPageUpdate();
+  const favourites: Array<DisneyCharacter> = useDisneyContext().favourites;
+  const showAll: boolean = useDisneyContext().showAll;
+  const updateShowAll = useDisneyContext().updateShowAll;
+  const currentPage: number = useDisneyContext().currentPage;
+  const updateCurrentPage = useDisneyContext().updateCurrentPage;
 
   // if showing favourites and all favourites are removed, revert to showing all
   useEffect(() => {
-    if (!showAll && favourites.favourites.length === 0) {
+    if (!showAll && favourites.length === 0) {
       updateShowAll(true);
     }
   });
@@ -35,7 +24,7 @@ const CharacterContainer: React.FC<React.ReactNode> = () => {
   if (showAll) {
     displayCharacters = [...characters];
   } else {
-    displayCharacters = [...favourites.favourites];
+    displayCharacters = [...favourites];
   }
 
   // this function separates our array of DisneyCharacters into rows and columns
