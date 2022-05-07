@@ -30,7 +30,12 @@ const Navigation: React.FC = () => {
   return (
     <div className="navigation">
       <div className="navigation__item">
-        <button className="navigation__button" onClick={prevPage}>
+        <button
+          className={
+            showAll ? "navigation__button" : "navigation__button--hidden"
+          }
+          onClick={prevPage}
+        >
           Prev Page
         </button>
       </div>
@@ -40,7 +45,12 @@ const Navigation: React.FC = () => {
         </button>
       </div>
       <div className="navigation__item">
-        <button className="navigation__button" onClick={nextPage}>
+        <button
+          className={
+            showAll ? "navigation__button" : "navigation__button--hidden"
+          }
+          onClick={nextPage}
+        >
           Next Page
         </button>
       </div>
