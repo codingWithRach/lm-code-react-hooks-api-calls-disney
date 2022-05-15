@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lm-code-react-hooks-api-calls-disney/static/css/main.b523250f.chunk.css",
+    "main.js": "/lm-code-react-hooks-api-calls-disney/static/js/main.20b78652.chunk.js",
+    "main.js.map": "/lm-code-react-hooks-api-calls-disney/static/js/main.20b78652.chunk.js.map",
+    "runtime-main.js": "/lm-code-react-hooks-api-calls-disney/static/js/runtime-main.b1805f3c.js",
+    "runtime-main.js.map": "/lm-code-react-hooks-api-calls-disney/static/js/runtime-main.b1805f3c.js.map",
+    "static/js/2.c588505a.chunk.js": "/lm-code-react-hooks-api-calls-disney/static/js/2.c588505a.chunk.js",
+    "static/js/2.c588505a.chunk.js.map": "/lm-code-react-hooks-api-calls-disney/static/js/2.c588505a.chunk.js.map",
+    "static/js/3.8cc9b403.chunk.js": "/lm-code-react-hooks-api-calls-disney/static/js/3.8cc9b403.chunk.js",
+    "static/js/3.8cc9b403.chunk.js.map": "/lm-code-react-hooks-api-calls-disney/static/js/3.8cc9b403.chunk.js.map",
+    "index.html": "/lm-code-react-hooks-api-calls-disney/index.html",
+    "static/css/main.b523250f.chunk.css.map": "/lm-code-react-hooks-api-calls-disney/static/css/main.b523250f.chunk.css.map",
+    "static/js/2.c588505a.chunk.js.LICENSE.txt": "/lm-code-react-hooks-api-calls-disney/static/js/2.c588505a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1805f3c.js",
+    "static/js/2.c588505a.chunk.js",
+    "static/css/main.b523250f.chunk.css",
+    "static/js/main.20b78652.chunk.js"
+  ]
+}
